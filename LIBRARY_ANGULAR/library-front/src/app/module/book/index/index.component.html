@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Book</h1>
+
+    <a href="#" routerLink="/book/create/" class="btn btn-success">Add book to the library</a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ISBN</th>
+                <th>title</th>
+                <th>genre</th>
+                <th>published</th>
+                <th width="250px">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let b of books">
+                <!-- colonne della tabella le prendo da DB -->
+                <td>{{ b.isbn }}</td>
+                <td>{{ b.title }}</td>
+                <td>{{ b.genre }}</td>
+                <td>{{ b.published }}</td>
+                <td>
+                    <!-- routing verso l'edit del book -->
+                    <a href="#" [routerLink]="['/book/edit', b.isbn]" class="btn btn-primary">Edit</a>
+                    <button type="button" (click)="removeBook(b.isbn)" class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

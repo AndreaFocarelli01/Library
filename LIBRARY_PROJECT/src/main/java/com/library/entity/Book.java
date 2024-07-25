@@ -22,11 +22,11 @@ public class Book implements Serializable {
     private Boolean published;
 
 
-    public String getISB() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setISB(String isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 
