@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { book_service_token, BookServiceI } from '../../bookI.service';
 import { BookService } from '../book.service';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -33,11 +33,10 @@ export class CreateComponent implements OnInit {
   }
   ngOnInit(): void {
     this.form = new FormGroup({
-
-      isbn: new FormControl(''),
-      title: new FormControl(''),
-      genre: new FormControl(''),
-      published: new FormControl(true)
+      isbn: new FormControl('', Validators.required),
+      title: new FormControl('', Validators.required),
+      genre: new FormControl('', Validators.required),
+      published: new FormControl(false, Validators.required)
     });
   }
 }
